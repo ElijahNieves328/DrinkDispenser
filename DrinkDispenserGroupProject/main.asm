@@ -2,7 +2,7 @@
 ; DrinkDispenserGroupProject.asm
 ;
 ; Created: 12/7/2021 3:35:16 PM
-; Author : Elijah Nieves
+; Author : Elijah Nieves, Robert McNiven
 ;
 
 main:
