@@ -94,8 +94,8 @@ T1Normal_1sec:
 ; TCNT1 = 49911 = $C2:$F7
 	ldi r20, $C2
 	sts TCNT1H, r20
-	ldi r20, $E5
-	sts TCNT1L, rF7
+	ldi r20, $F7
+	sts TCNT1L, r20
 
 ; Load TCCR1A & TCCR1B
 	clr r20
