@@ -13,9 +13,7 @@
 ; TODO: 
 	; Make sure the algorithm is correct by running it on the Arduino set up
 	; Make sure the program uses the water sensor input properly
-	; Change the 3 second timer to a 1 second timer
 	; Implement the ice cube routine (maybe as an interrupt?)
-	;
 
 
 .equ Right_LED = PB1
@@ -80,7 +78,7 @@ BlinkRightLEDTwice:
 	ldi r21, 2						; this is how many times we have blinked
 
 	sbi PORTB, Right_LED			; turn on the Right LED
-	call T1Normal_3sec				; change this later to be a 1 second delay
+	call T1Normal_1sec				; delay 1 second
 	cbi PORTB, Right_LED			; turns off the Right LED
 
 	dec r21
@@ -88,17 +86,16 @@ BlinkRightLEDTwice:
 	rjmp blink						; loop of one second blinking
 
 
-; TODO: make this a 1 second timer instead
-T1Normal_3sec:
+T1Normal_1sec:
 ; use this for the ice cubes! when ice cube button is pressed, turn the servo on, call the timer (call 3 times if the timer is 1 second), then turn the servo off.
-; 3,000,000 microsecond delay. (3 seconds)
+; 1,000,000 microsecond delay. (1 second)
 ; Prescaler = 1024
 ; Load TCNT1H:TCNT1L with initial count
-; TCNT1 = 18661 = $48:$E5
-	ldi r20, $48
+; TCNT1 = 49911 = $C2:$F7
+	ldi r20, $C2
 	sts TCNT1H, r20
 	ldi r20, $E5
-	sts TCNT1L, r20
+	sts TCNT1L, rF7
 
 ; Load TCCR1A & TCCR1B
 	clr r20
